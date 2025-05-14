@@ -251,7 +251,7 @@ tag to tell browsers to render the gaps.
 
 <label htmlFor="wd-text-fields-salary-start"> Starting salary:</label>
 <input type="number"
-       value="100000"
+       value={100000}
        placeholder="1000"
        id="wd-text-fields-salary-start"/><br/>
 
