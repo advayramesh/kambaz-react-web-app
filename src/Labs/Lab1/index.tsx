@@ -257,8 +257,8 @@ tag to tell browsers to render the gaps.
 
 <label htmlFor="wd-text-fields-rating"> Rating: </label>
 <input type="range"
-       value="4"
-       max="5"
+       value={4}
+       max={5}
        placeholder="Doe"
        id="wd-text-fields-rating"/><br/>
 
