@@ -268,7 +268,7 @@ tag to tell browsers to render the gaps.
        id="wd-text-fields-dob"/><br/>
 <h4>Anchor tag</h4>
 Please
-<a href="https://github.com/advayramesh" id="wd-github">Github Link</a>
+<a href="https://github.com/advayramesh/kambaz-react-web-app/tree/main" id="wd-github">Github Link to the project</a>
 to get dummy text<br/>
   </form>
 

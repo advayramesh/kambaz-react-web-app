@@ -8,7 +8,7 @@ export default function Dashboard() {
         <div className="wd-dashboard-course">
           <Link to="/Kambaz/Courses/1234/Home"
                 className="wd-dashboard-course-link" >
-            <img src="/images/reactjs.jpg" width={200} />
+            <img src="images/webdev.jpg" width={200} />
             <div>
               <h5> CS1234 React JS </h5>
               <p className="wd-dashboard-course-title">
@@ -17,8 +17,24 @@ export default function Dashboard() {
             </div>
           </Link>
         </div>
-        <div className="wd-dashboard-course"> ... </div>
-        <div className="wd-dashboard-course"> ... </div>
+        <div className="wd-dashboard-course"> 
+        <img src="images/images.png" width={200} />
+        <div>
+          <h5> CS1234 HTML </h5>
+          <p className="wd-dashboard-course-title">
+            Learn HTML  </p>
+          <button> Go </button>
+        </div>
+          </div>
+        <div className="wd-dashboard-course"> 
+          <img src="images/css.png" width={200} />
+          <div>
+            <h5> CS1234 CSS</h5>
+            <p className="wd-dashboard-course-title">
+              Learn CSS  </p>
+            <button> Go </button>
+          </div>
+           </div>
       </div>
     </div>
 );}
