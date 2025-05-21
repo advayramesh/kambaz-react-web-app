@@ -1,114 +1,72 @@
+import { Button, Form } from "react-bootstrap";
 export default function AssignmentEditor() {
     return (
       <div id="wd-assignments-editor">
-        <label htmlFor="wd-name">Assignment Name</label>
-        <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
-        <textarea id="wd-description">
-          The assignment is available online Submit a link to the landing page of
-        </textarea>
-        <br />
-        <table>
-          <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-points">Points</label>
-          </td>
-          <td>
-            <input id="wd-points" value={100} />
-          </td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">
-                <label htmlFor="wd-group">Assignment Group</label>
-            </td>
-            <td>
-                <select id="wd-group">
-                    <option>ASSIGNMENTS</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td align="right" valign="top">
-                <label htmlFor="wd-display-grade-as">Display Grade As</label>
-            </td>
-            <td>
-                <select id="wd-display-grade-as">
-                <option>Percentage</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td align="right" valign="top">
-                <label htmlFor="wd-submission-type">Submission Type</label>
-            </td>
-            <td>
-                <select id="wd-submission-type">
-                    <option>Online</option>
-                </select>
-                <br />
-                <br />
-                <input type="checkbox" id="wd-text-entry" />
-                <label htmlFor="wd-text-entry">Text Entry</label>
-                <br />
-                <input type="checkbox" id="wd-website-url" />
-                <label htmlFor="wd-website-url">Website URL</label>
-                <br />
-                <input type="checkbox" id="wd-file-upload" />
-                <label htmlFor="wd-file-upload">File Upload</label>
-                <br />
-                <input type="checkbox" id="wd-media-recording" />
-                <label htmlFor="wd-media-recording">Media Recording</label>
-                <br />
-                <input type="checkbox" id="wd-student-annotation" />
-                <label htmlFor="wd-student-annotation">Student Annotation</label>
-                <br />
-                <input type="checkbox" id="wd-file-upload" />
-                <label htmlFor="wd-file-upload">File Upload</label>
-                <br />
-                <br />
-                
-            </td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">
-                <label htmlFor="wd-assign-to">Assign To</label>
-            </td>
-            <td>
-                <input id="wd-assign-to"></input>
-                <br />
-            </td>
-        </tr>
-
-        <tr>
-            <td align="right" valign="top">
-                <label htmlFor="wd-due-date">Due</label>
-            </td>
-            <td>
-                <input type="date" id="wd-due-date"></input>
-                <br />
-            </td>
-        </tr>
-
-        <tr>
-            <td align="right" valign="top">
-                <label htmlFor="wd-available-form">Available From</label>
-            </td>
-            <td>
-                <input type="date" id="wd-available-from"></input>
-            </td>
-        </tr>
-
-        <tr>
-            <td align="right" valign="top">
-                <label htmlFor="wd-available-untill">Untill</label>
-            </td>
+        <Form>
+            <Form.Group className="mb-3">
+                <Form.Label>Assignment Name</Form.Label>
+                <Form.Control type="text" id="wd-name" value="A1 - ENV + HTML" />
+            </Form.Group>
+        </Form>
+        <Form.Group className="mb-3">
+            <Form.Label>Description</Form.Label>
+            <Form.Control as="textarea" id="wd-description" value="The assignment is available online Submit a link to the landing page of" />
+        </Form.Group>
         
-            <td>
-                <input type="date" id="wd-available-untill"></input>
-            </td>
-        </tr>
-      </table>
+        <br />
+        <Form.Group className="mb-3">
+            <Form.Label>Points</Form.Label>
+            <Form.Control type="number" value="100" />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+            <Form.Label>Assignment Group</Form.Label>
+            <Form.Select>
+                <option>Assignments</option>
+                <option>Group 1</option>
+                <option>Group 2</option>
+                <option>Group 3</option>
+            </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+            <Form.Label>Display Grade as</Form.Label>
+            <Form.Select>
+                <option>Percentage</option>
+                <option>Value</option>
+            </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3 border p-2">
+            <Form.Label>Submission Type</Form.Label>
+            <Form.Select><option>Online</option></Form.Select>
+            <b>Online Entry Options</b>
+            <Form.Check type="checkbox" label="Text Entry" />
+            <Form.Check type="checkbox" label="Website url" />
+            <Form.Check type="checkbox" label="Media recordings" />
+            <Form.Check type="checkbox" label="Student Annotations" />
+            <Form.Check type="checkbox" label="File Upload" />
+        </Form.Group>
+
+
+        <Form.Group className="mb-3 border p-2">
+            <Form.Label>Due Date</Form.Label>
+            <Form.Control type="date" id="wd-due-date" />
+            <Form.Label>Available from</Form.Label>
+            <Form.Control type="date" id="wd-available-from" />
+            <Form.Label>Available until</Form.Label>
+            <Form.Control type="date" id="wd-available-until" />
+        </Form.Group>
+            
+        
+        
+        
+
+        <div className="d-flex justify-content-end">
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="danger">Save</Button>
+            
+        </div>
     </div>
 );}
   
