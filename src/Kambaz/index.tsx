@@ -4,6 +4,7 @@ import Account from "./Account";
 import Dashboard from "./Dashboard";
 import KambazNavigation from "./Navigation";
 import Courses from "./Courses";
+import Labs from "../Labs/index";
 import "./styles.css"
 export default function Kambaz() {
   return (
@@ -19,6 +20,7 @@ export default function Kambaz() {
         <Route path="/Courses/:cid/*" element={<Courses />} />
         <Route path="/Calendar" element={<h1>Calendar</h1>} />
         <Route path="/Inbox" element={<h1>Inbox</h1>} />
+        <Route path="/Labs/*" element={<Labs />} />
       </Routes>
     </div>
 </div>

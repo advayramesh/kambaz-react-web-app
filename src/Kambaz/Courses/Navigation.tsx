@@ -16,6 +16,7 @@ export default function CourseNavigation() {
         className="list-group-item text-danger border border-0"> Quizzes </Link>
       <Link to="/Kambaz/Courses/1234/People" id="wd-course-people-link"
         className="list-group-item text-danger border border-0" > People </Link>
+      
     </div>
 );}
 

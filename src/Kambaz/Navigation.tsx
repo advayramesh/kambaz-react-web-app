@@ -38,6 +38,11 @@ export default function KambazNavigation() {
                   bg-black text-center border-0">
        <FaInbox className="fs-1 text-danger" /><br />
        Inbox </ListGroup.Item>
+       <ListGroup.Item to="/Kambaz/Labs" as={Link}
+       className="text-white bg-black text-center border-0">
+  <LiaBookSolid className="fs-1 text-danger" /><br />
+  Labs
+</ListGroup.Item>
     <ListGroup.Item to="/Kambaz/Settings" as={Link}
        className="text-white
                   bg-black text-center border-0">
