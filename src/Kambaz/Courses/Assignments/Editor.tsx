@@ -1,16 +1,23 @@
 import { Button, Form } from "react-bootstrap";
+import { useParams, Link } from "react-router";
+import * as db from "../../Database";
 export default function AssignmentEditor() {
+    const { aid } = useParams();
+    const assignment = db.assignments.find((a) => a._id === aid);
+    if (!assignment) {
+        return <div>Assignment not found</div>;
+    }
     return (
       <div id="wd-assignments-editor">
         <Form>
             <Form.Group className="mb-3">
                 <Form.Label>Assignment Name</Form.Label>
-                <Form.Control type="text" id="wd-name" value="A1 - ENV + HTML" />
+                <Form.Control type="text" id="wd-name" value={assignment?.title || ""} />
             </Form.Group>
         </Form>
         <Form.Group className="mb-3">
             <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" id="wd-description" value="The assignment is available online Submit a link to the landing page of" />
+            <Form.Control as="textarea" id="wd-description" value={assignment?.title || ""} />
         </Form.Group>
         
         <br />
@@ -63,8 +70,10 @@ export default function AssignmentEditor() {
         
 
         <div className="d-flex justify-content-end">
-        <Button variant="secondary">Cancel</Button>
-        <Button variant="danger">Save</Button>
+            <Link to={`/Kambaz/Courses/${assignment?.course}/Assignments`}>
+                <Button variant="secondary">Cancel</Button>
+            </Link>
+            <Button variant="danger">Save</Button>
             
         </div>
     </div>
