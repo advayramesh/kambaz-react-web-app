@@ -1,22 +1,36 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ListGroup, Button } from "react-bootstrap";
-import {FaFileAlt} from "react-icons/fa";
+import {FaFileAlt, FaTrash} from "react-icons/fa";
 import GreenCheckmark from "./GreenCheckmark";
 import { useParams,Link } from "react-router";
-import * as db from "../../Database";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteAssignment } from "./reducer";
 export default function Assignments() {
     const { cid } = useParams();
-    const assignments = db.assignments.filter((assignment) => assignment.course === cid);
+    const dispatch = useDispatch();
+    const { currentUser } = useSelector((state: any) => state.accountReducer);
+    const isFaculty = currentUser?.role === "FACULTY";
+    const assignments = useSelector((state: any) =>
+      state.assignmentsReducer.assignments.filter((a: any) => a.course === cid)
+    );
+    const handleDelete = (assignmentId: string) => {
+      if (window.confirm("Confirm if you want to delete the assignment?")) {
+        dispatch(deleteAssignment(assignmentId));
+      }
+    };
     return (
       <div className="p-3">
         <div className="d-flex justify-content-between align-items-center border px-2 py-2">
           <span className="fw-bold fs-5">
             ASSIGNMENTS <span className="text-muted">40% of Total</span>
           </span>
-          <Button size="sm" variant="light">+</Button>
+          {isFaculty && (
+            <Button size="sm" variant="light">+</Button>
+          )}
         </div>
   
         <ListGroup className="rounded-0">
-          {assignments.map((a) => (
+          {assignments.map((a: any) => (
             <ListGroup.Item key={a._id}>
               <div className="d-flex justify-content-between">
                 <div>
@@ -35,6 +49,11 @@ export default function Assignments() {
                 </div>
                 <div className="text-end">
                   <GreenCheckmark />
+                  {isFaculty && (
+        <Button size="sm" variant="outline-danger" onClick={() => handleDelete(a._id)}>
+           <FaTrash />
+       </Button>
+)}
                 </div>
               </div>
             </ListGroup.Item>
