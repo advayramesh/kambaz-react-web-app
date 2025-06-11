@@ -4,7 +4,10 @@ import {FaFileAlt, FaTrash} from "react-icons/fa";
 import GreenCheckmark from "./GreenCheckmark";
 import { useParams,Link } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment ,setAssignments} from "./reducer";
+import * as assignmentsClient from "./client";
+import { useEffect } from "react";
+
 export default function Assignments() {
     const { cid } = useParams();
     const dispatch = useDispatch();
@@ -18,6 +21,13 @@ export default function Assignments() {
         dispatch(deleteAssignment(assignmentId));
       }
     };
+    const fetchAssignments = async () => {
+      const assignments = await assignmentsClient.findAssignmentsForCourse(cid as string);
+      dispatch(setAssignments(assignments));
+    };
+    useEffect(() => {
+      fetchAssignments();
+    }, []);
     return (
       <div className="p-3">
         <div className="d-flex justify-content-between align-items-center border px-2 py-2">

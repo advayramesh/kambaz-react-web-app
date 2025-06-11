@@ -9,6 +9,7 @@ import PeopleTable from "./People/Table";
 import { FaAlignJustify } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
+
 export default function Courses() {
   const { cid } = useParams();
   const courses = useSelector((state: any) => state.coursesReducer.courses);

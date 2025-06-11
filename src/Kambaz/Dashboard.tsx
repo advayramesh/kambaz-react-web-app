@@ -97,10 +97,6 @@ export default function Dashboard() {
 
       <Row xs={1} md={5} className="g-4">
         {courses
-          .filter(
-            (course: any) =>
-              showAllCourses || isEnrolled(course._id)
-          )
           .map((course: any) => (
             <Col key={course._id} className="wd-dashboard-course" style={{ width: "300px" }}>
               <Card>
