@@ -52,7 +52,7 @@ export default function Dashboard() {
     if (isEnrolled(courseId)) {
       await enrollmentsClient.unenrollUserFromCourse(currentUser._id, courseId);
     } else {
-      await enrollmentsClient.enrollUserInCourse(courseId);
+      await enrollmentsClient.enrollUserInCourse(currentUser._id, courseId);
     }
     fetchEnrollments();
   };
@@ -149,6 +149,7 @@ export default function Dashboard() {
                         className={`btn ${isEnrolled(course._id) ? "btn-danger" : "btn-success"} float-end`}
                       >
                         {isEnrolled(course._id) ? "Unenroll" : "Enroll"}
+                        
                       </button>
                     )}
                   </Card.Body>
