@@ -8,14 +8,25 @@ import AssignmentEditor from "./Assignments/Editor";
 import PeopleTable from "./People/Table";
 import { FaAlignJustify } from "react-icons/fa";
 import { useSelector } from "react-redux";
-
+import { useEffect, useState } from "react";
+import * as courseClient from "./client"; // Correct source
 
 export default function Courses() {
   const { cid } = useParams();
   const courses = useSelector((state: any) => state.coursesReducer.courses);
   const course = courses.find((c: any) => c._id === cid);
+  const [users, setUsers] = useState<any[]>([]);
 
-  
+  useEffect(() => {
+    const fetch = async () => {
+      if (cid) {
+        const enrolledUsers = await courseClient.findUsersForCourse(cid);
+        setUsers(enrolledUsers);
+      }
+    };
+    fetch();
+  }, [cid]);
+
   if (!course) return <Navigate to="/Kambaz/Dashboard" />;
 
   return (
@@ -35,7 +46,7 @@ export default function Courses() {
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:aid" element={<AssignmentEditor />} />
-            <Route path="People" element={<PeopleTable />} />
+            <Route path="People" element={<PeopleTable users={users} />} />
           </Routes>
         </div>
       </div>
