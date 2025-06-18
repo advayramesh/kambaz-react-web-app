@@ -82,7 +82,7 @@ export default function Assignments() {
                   <span className="text-danger">Multiple Modules</span> | Not available until May 6 at 12:00am
                 </div>
                 <div className="text-muted small">
-                  Due Date: {a.dueDate || "TBD"} | {a.points} pts
+                  Due Date: {a.dueDate || ""} | {a.points} pts
                 </div>
               </div>
               <div className="text-end">
