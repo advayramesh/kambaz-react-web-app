@@ -51,10 +51,10 @@ export default function PeopleDetails() {
         {!editing && (
           <div className="wd-name"
                onClick={() => setEditing(true)}>
-            {user.firstName} {user.lastName}</div>)}
+            {user?.firstName} {user?.lastName}</div>)}
         {user && editing && (
           <FormControl className="w-50 wd-edit-name"
-            defaultValue={`${user.firstName} ${user.lastName}`}
+            defaultValue={`${user?.firstName || ''} ${user?.lastName || ''}`}
             onChange={(e) => setName(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter") { saveUser(); }}}/>)} </div>
