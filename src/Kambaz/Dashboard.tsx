@@ -45,7 +45,7 @@ export default function Dashboard() {
   const isEnrolled = (courseId: string) =>
     currentUser.role === "FACULTY" ||
     enrollments.some((enrollment: any) =>
-      enrollment.user === currentUser._id && enrollment.course === courseId
+      enrollment.user?._id === currentUser._id && enrollment.course?._id === courseId
     );
 
   const toggleEnrollment = async (courseId: string) => {
