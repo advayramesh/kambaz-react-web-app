@@ -43,7 +43,7 @@ export default function Dashboard() {
   };
 
   const isEnrolled = (courseId: string) =>
-    currentUser.role === "FACULTY" ||
+    currentUser.role === "FACULTY" || currentUser.role === "ADMIN" || currentUser.role === "TA" ||
     enrollments.some((enrollment: any) =>
       enrollment.user?._id === currentUser._id && enrollment.course?._id === courseId
     );
